@@ -92,7 +92,9 @@ Description: Creating patient registration form
 										type="text" 
 										name="fname" 
 										class="patientname" 
+										pattern="[a-zA-Z]{2,30}"
 										placeholder="First Name" 
+										title="Example: Jane (Letters, apostrophes and dashes only - must be at least 2 characters long)"
 										minlength="2" 
 										maxlength="30" 
 										required
@@ -108,7 +110,8 @@ Description: Creating patient registration form
 										type="text" 
 										name="midname" 
 										class="midname" 
-										placeholder="Middle Initial" 
+										placeholder="Middle Initial"
+										title="Example: M (1 character long - letter only)"
 										minlength="0" 
 										maxlength="1"
 									>
@@ -124,7 +127,8 @@ Description: Creating patient registration form
 										type="text" 
 										name="lname" 
 										class="patientname" 
-										placeholder="Last Name" 
+										placeholder="Last Name"
+										title="Example: Doe (Letters, apostrophes and dashes only - must be at least 2 characters long)" 
 										minlength="2" 
 										maxlength="30" 
 										required
@@ -144,7 +148,8 @@ Description: Creating patient registration form
 										type="date" 
 										name="dob" 
 										id="dob" 
-										placeholder="Date of Birth" 
+										placeholder="Date of Birth"
+										title="Either enter as mm/dd/yyyy or click on calendar icon" 
 										min="1925-01-01" 
 										required
 									>
@@ -159,7 +164,8 @@ Description: Creating patient registration form
 										type="password" 
 										name="ssnum" 
 										id="ssnum"  
-										placeholder="***-**-1234" 
+										placeholder="***-**-1234"
+										title="Include with dashes - Example: 123-45-6789" 
 										minlength="9" 
 										maxlength="11" 
 										required
@@ -233,7 +239,8 @@ Description: Creating patient registration form
 								<!-- Adding input text box to freely type in an other language-->
 									<input 
 										type="text" 
-										class="primelangtxt" 
+										class="primelangtxt"
+										title="If other button is picked - Type in your language" 
 										name="othertxt"
 									>
 									</input>
@@ -313,7 +320,8 @@ Description: Creating patient registration form
 										name="address" 
 										class="address1" 
 										placeholder="Street Address"
-										minlength="5"
+										title="Example: 123 Main Street (Between 2-30 characters long)"
+										minlength="2"
 										maxlength="30" 
 										required
 									>
@@ -332,6 +340,8 @@ Description: Creating patient registration form
 										name="address" 
 										class="address2" 
 										placeholder="Street Address Line 2"
+										title="Example: Apt 202 (Between 2-30 characters long)"
+										minlength="2"
 										maxlength="30"
 									>
 									</input>
@@ -350,6 +360,7 @@ Description: Creating patient registration form
 										name="city" 
 										class="city" 
 										placeholder="City"
+										title="Example: Houston (Between 2-30 characters long)"
 										minlength="2"
 										maxlength="30"
 										required
@@ -368,6 +379,7 @@ Description: Creating patient registration form
 										name="state" 
 										id="state" 
 										class="state"
+										title="Click on dropdown menu and select your state"
 										required
 									>
 											<!-- The option list was used from the below website:
@@ -437,6 +449,7 @@ Description: Creating patient registration form
 										name="zip" 
 										class="zip" 
 										placeholder="Zip Code"
+										title="Example: 90210 (Must be 5 digits)"
 										minlength="5"
 										maxlength="5"
 										required
@@ -456,7 +469,8 @@ Description: Creating patient registration form
 										type="phone" 
 										name="phone" 
 										class="phone" 
-										placeholder="Phone Number" 
+										placeholder="Phone Number"
+										title="Example: 555-123-4567 (numbers and dashes only)" 
 										minlength="10"
 										maxlength="12"
 										required
@@ -493,6 +507,7 @@ Description: Creating patient registration form
 										name="email" 
 										class="email" 
 										placeholder="Email@Domain.com"
+										title="format Email@Domain.com" 
 										minlength="5"
 										maxlength="30"
 										required
@@ -528,7 +543,9 @@ Description: Creating patient registration form
 										type="text" 
 										name="fname" 
 										class="e-contactname" 
-										placeholder="First Name" 
+										placeholder="First Name"
+										title="Example: Jane (Letters, apostrophes and dashes only - must be at least 2 characters long)"
+										minlength="2" 
 										maxlength="30"
 									>
 									</input>
@@ -543,6 +560,8 @@ Description: Creating patient registration form
 										name="lname" 
 										class="e-contactname" 
 										placeholder="Last Name"
+										title="Example: Doe (Letters, apostrophes and dashes only - must be at least 2 characters long)"
+										minlength="2"
 										maxlength="30"
 									>
 									</input>
@@ -560,6 +579,8 @@ Description: Creating patient registration form
 										name="phone" 
 										class="phone2" 
 										placeholder="Phone Number"
+										title="Example: 555-123-4567 (numbers and dashes only)"
+										minlength="10"
 										maxlength="12"
 									>
 									</input>
@@ -594,6 +615,7 @@ Description: Creating patient registration form
 										class="email" 
 										maxlength="30"
 										placeholder="Email@Domain.com"
+										title="format Email@Domain.com"
 									>
 									</input>
 							</td>	
@@ -811,6 +833,7 @@ Description: Creating patient registration form
 									id="health-form"
 									name="health-form"
 									class="health-form"
+									title="Please describe any current health issues"
 								>
 								</textarea>
 															
@@ -835,6 +858,7 @@ Description: Creating patient registration form
 										max="10"
 										value="1"
 										step="1"
+										title="Slide from left to right based on how you would rate your overall health"
 									>
 									</input>
 									<!--Adding in text on each end of the slider to show what each side means to the user-->
@@ -876,6 +900,7 @@ Description: Creating patient registration form
 										name="username" 
 										id="username" 
 										placeholder="Username"
+										title="Username must be 6 to 15 characters (Only letters, numbers, underscore or dashes allowed. No Spaces)"
 										minlength="6" 
 										maxlength="15"
 										required
@@ -915,8 +940,9 @@ Description: Creating patient registration form
 										name="password" 
 										id="password" 
 										placeholder="Password"
-                                        minlength="8"
-                                        maxlength="32" 
+										title="Password must be 8 to 32 characters long, contain at least 1 upper case letter and 1 number or 1 special character."
+                    minlength="8"
+                    maxlength="32" 
 										required
 									>
 									</input>
@@ -932,8 +958,10 @@ Description: Creating patient registration form
 										name="password" 
 										id="repeat-password" 
 										placeholder="Repeat Password"
-                                        minlength="8"
-                                        maxlength="32"
+										title="Re-enter password (Passwords must match)"
+                    minlength="8"
+                    minlength="8"
+                    maxlength="32"
 										required
 									>
 									</input>
