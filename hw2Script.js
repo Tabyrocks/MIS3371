@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   function getDate() {
     const dateChange = new Date();
 	  let currentDay = dateChange.toLocaleDateString();
-	  document.getElementById ("today").innerHTML = currentDay; 
+	  document.getElementById ("currentDate").innerHTML = currentDay; 
   }
   getDate();
 })
