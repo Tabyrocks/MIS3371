@@ -14,10 +14,30 @@ function getFooter() {
   fetch('hw2-footer.html') //Fetching the footer
     .then(response => response.text())
     .then(data => {
-      const footer = document.getElementById('footerPlaceholder');
+      document.getElementById('footerPlaceholder').value;
       if (footerPlacholder) {
       footerPlaceholder.innerHTML = data;
       }
     })
     .catch(error => console.error('Error loading footer:', error));
 }
+
+
+function validateFname() 
+  {
+    const fnameValid = document.getElementByID ("fnameValidate").value;
+    if(fnameValid < 1) {
+      document.getElementById("fnameErrorMsg").innerHTML = "Error: Name must be 1 or more characters";
+      errorFlag = 1;
+    }
+    else {
+      if (fnameValid.match(/^([a-zA-Z]'?-?){1,30}$/)) {
+        document.getElementById("fnameErrorMsg").innerHTML = "";
+      }
+      else {
+        document.getElementById("fnameErrorMsg").innerHTML = "Error invalid characters: Name can only have Letters, apostrophes and dashes";
+        errorFlag = 1;
+      }
+    }
+  }
+
