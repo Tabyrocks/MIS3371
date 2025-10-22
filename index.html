@@ -37,7 +37,6 @@ Description: Creating patient registration form
 		<form 
 			name="med-signup"
 			id="signup"
-			onreset="removedata1()"
 			action="hw2-thankyou.html"
       method="get"
         >
@@ -56,10 +55,10 @@ Description: Creating patient registration form
 						</th>
 						<td>
 							<label
-								class="todaydate" 
+								class="todaydate"
 								id="today"
 							>
-								Today's Date: 
+								Today's Date:
 							</label>
 							
 						</td>
@@ -1008,22 +1007,9 @@ Description: Creating patient registration form
 						</tr>
 					</tbody>						
 				</table>
-		
-				<!--Adding script to link to the thankyou.html file. Used https://profjake.w3spaces.com/MIS3371/homework3.html as reference -->
-				<script src="hw2-thank-you.html">
-				</script>
 
-				<!--Adding script to bring footer into form. Script found at https://stackoverflow.com/questions/63663201/i-use-a-fetch-statement-to-retrieve-my-html-footer-and-include-it-on-every-page-->
-                <div id="footer-placeholder"></div>
-                
-                <script>
-                    fetch('hw2-footer.html')
-                    .then(response => response.text())
-                    .then(data => {
-                    document.getElementById('footer-placeholder').innerHTML = data;
-                    })
-                    .catch(error => console.error('Error loading footer:', error));
-                </script>    
+				<!--Placeholder to bring in the footer-->
+      <div id="footerPlaceholder"></div>  
 		</form>	
 	</body>
 </html>
