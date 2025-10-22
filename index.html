@@ -85,7 +85,7 @@ Description: Creating patient registration form
 				<table>	
 					<tbody>
 						<tr>
-							<h3 id=required>Required fields are denoted by </h3>
+							<h3 id="required">Required fields are denoted by </h3>
 							<td class="ptname">
 								<label 
 									for="fname"
@@ -96,7 +96,8 @@ Description: Creating patient registration form
 									<input 
 										type="text" 
 										name="fname" 
-										class="patientname" 
+										class="patientname"
+										id="fnameValidate" 
 										pattern="^([a-zA-Z]'?-?){1,30}$"
 										onblur="validateFname()"
 										placeholder="First Name" 
@@ -106,6 +107,7 @@ Description: Creating patient registration form
 										required
 									>
 									</input>
+									<span class="errMsg" id="fnameErrorMsg"></span>
 							
 								<label 
 									for="midname"
