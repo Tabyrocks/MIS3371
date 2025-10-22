@@ -7,26 +7,31 @@ Description: Creating patient registration form
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
+	<head>
+      <meta charset="UTF-8">
 		
-        <title>Get Well Medical</title>
+      <title>Get Well Medical</title>
 
-		<!--Creating meta to set up viewport so content will resize correctly on multiple devices.-->
-		<meta 
-			name="viewport"
-			content="width=device-width, initial-scale=2.0"
-		>
-		
-		<!-- Loading external css styles -->
-		<link 
-			rel="stylesheet"
-			href="hw2-styles.css" 
+			<!--Creating meta to set up viewport so content will resize correctly on multiple devices.-->
+			<meta 
+				name="viewport"
+				content="width=device-width, initial-scale=2.0"
 			>
 			
-    </head>
+			<!-- Loading external css styles -->
+			<link 
+				rel="stylesheet"
+				href="hw2-styles.css" 
+				>
+			<!-- Loading external Javascript file -->
+			<script
+				src="hw2-script.js"
+				>
+			</script>
+			
+  </head>
 
-    <body>
+  <body>
 		<!--Creating form and linking it to pop up the thankyou.html when form is submitted. 
 		Used https://profjake.w3spaces.com/MIS3371/homework3.html as a reference-->
 		<form 
@@ -34,7 +39,7 @@ Description: Creating patient registration form
 			id="signup"
 			onreset="removedata1()"
 			action="hw2-thankyou.html"
-            method="get"
+      method="get"
         >
 			<table>
 				<thead>
@@ -92,10 +97,11 @@ Description: Creating patient registration form
 										type="text" 
 										name="fname" 
 										class="patientname" 
-										pattern="^([a-zA-Z]'?-?){2,30}$"
+										pattern="^([a-zA-Z]'?-?){1,30}$"
+										onblur="validateFname()"
 										placeholder="First Name" 
-										title="Example: Jane (Letters, apostrophes and dashes only - must be at least 2 characters long)"
-										minlength="2" 
+										title="Example: Jane (Letters, apostrophes and dashes only - must be at least 1 characters long)"
+										minlength="1" 
 										maxlength="30" 
 										required
 									>
@@ -111,6 +117,7 @@ Description: Creating patient registration form
 										name="midname" 
 										class="midname"
 										pattern="^[a-zA-Z]$"
+										onblur="validateMidname()"
 										placeholder="Middle Initial"
 										title="Example: M (1 character long - letter only)"
 										minlength="0" 
@@ -128,10 +135,11 @@ Description: Creating patient registration form
 										type="text" 
 										name="lname" 
 										class="patientname"
-										pattern="^([a-zA-Z]'?-?){2,30}$"
+										pattern="^([a-zA-Z2-5]'?-?){1,30}$"
+										onblur="validateLname()"
 										placeholder="Last Name"
-										title="Example: Doe (Letters, apostrophes and dashes only - must be at least 2 characters long)" 
-										minlength="2" 
+										title="Example: Doe (Letters, numbers 2 - 5, apostrophes and dashes only - must be at least 1 characters long)" 
+										minlength="1" 
 										maxlength="30" 
 										required
 									>
@@ -150,9 +158,8 @@ Description: Creating patient registration form
 										type="date" 
 										name="dob" 
 										id="dob" 
+										onblur="validateBirthDate()"
 										placeholder="Date of Birth"
-										title="Either enter as mm/dd/yyyy or click on calendar icon" 
-										min="1925-01-01" 
 										required
 									>
 									</input>
@@ -165,7 +172,8 @@ Description: Creating patient registration form
 									<input 
 										type="password" 
 										name="ssnum" 
-										id="ssnum"  
+										id="ssnum"
+										onblur="validateSSNumber()" 
 										placeholder="***-**-1234"
 										pattern="[0-9]{3,3}?[-]?[0-9]{2,2}?[-]?[0-9]{4,4}$"
 										title="Only numbers or dashes (no spaces) Example: 123-45-6789 or 123456789" 
@@ -1001,13 +1009,6 @@ Description: Creating patient registration form
 					</tbody>						
 				</table>
 		
-        		<!-- Adding in script to bring in current date. Found on W3schools.com-->
-				<script>
-					const d = new Date();
-					let text = d.toLocaleDateString();
-					document.getElementById ("today").innerHTML = text; 
-				</script>
-
 				<!--Adding script to link to the thankyou.html file. Used https://profjake.w3spaces.com/MIS3371/homework3.html as reference -->
 				<script src="hw2-thank-you.html">
 				</script>
