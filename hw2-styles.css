@@ -74,8 +74,14 @@ input[type=email]:focus,[type=password]:focus,[type=address]:focus,[type=phone]:
 }
 
 /*Assigning font-size to the input labels*/
-.ptname, .ptinfo, .address, .address-2, .e-contact, .e-contactinfo, .instructions, .medhistory-1, .medhistory-2, .health, .password, .ptlang, .ptmarital, .health-slider, .slider-start, .slider-end, .footer .currentDate{
+.ptname, .ptinfo, .address, .address-2, .e-contact, .e-contactinfo, .instructions, .medhistory-1, .medhistory-2, .health, .password, .ptlang, .ptmarital, .health-slider, .slider-start, .slider-end, .footer, .currentDate{
 	font-size: 16px;
+}
+
+.errMsg {
+	font-size: 20px;
+	color: red;
+	text-align: top;
 }
 
 /*Creating the Red asterisk for the required fields*/
