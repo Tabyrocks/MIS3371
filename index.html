@@ -24,10 +24,7 @@ Description: Creating patient registration form
 				href="hw2-styles.css" 
 				>
 			<!-- Loading external Javascript file -->
-			<script
-				src="hw2Script.js"
-				>
-			</script>
+
 			
   </head>
 
@@ -107,8 +104,7 @@ Description: Creating patient registration form
 										required
 									>
 									</input>
-									<span class="errMsg" id="fnameErrorMsg"></span>
-							
+
 								<label 
 									for="midname"
 								>
@@ -146,6 +142,9 @@ Description: Creating patient registration form
 										required
 									>
 									</input>
+							</td>
+							<td>
+									<span class="errMsg" id="fnameErrorMsg">Message</span>
 							</td>
 						</tr>
 						<tr>
@@ -1014,7 +1013,11 @@ Description: Creating patient registration form
 
 				<!--Placeholder to bring in the footer-->
       <div id="footerPlaceholder"></div>  
-		</form>	
+		</form>
+		<script
+			src="hw2Script.js"
+		>
+		</script>
 	</body>
 </html>
 
