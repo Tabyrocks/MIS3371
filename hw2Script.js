@@ -11,15 +11,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
 /*<!--Adding script to bring footer into form. Script found at 
 https://stackoverflow.com/questions/63663201/i-use-a-fetch-statement-to-retrieve-my-html-footer-and-include-it-on-every-page*/
 function getFooter() {
-  fetch('hw2-footer.html') //Fetching the footer
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('footerPlaceholder').value;
-      if (footerPlacholder) {
-      footerPlaceholder.innerHTML = data;
-      }
-    })
-    .catch(error => console.error('Error loading footer:', error));
+  fetch('hw2-footer.html')
+  .then(response => response.text())
+  .then(data => {
+  document.getElementById('footerPlaceholder').innerHTML = data;
+  })
+  .catch(error => console.error('Error loading footer:', error));
 }
 
 
