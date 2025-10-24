@@ -114,6 +114,7 @@ Description: Creating patient registration form
 										type="text" 
 										name="midname" 
 										class="midname"
+										id="midnameValidate"
 										pattern="^[a-zA-Z]$"
 										onblur="validateMidname()"
 										placeholder="Middle Initial"
@@ -133,6 +134,7 @@ Description: Creating patient registration form
 										type="text" 
 										name="lname" 
 										class="patientname"
+										id="lnameValidate"
 										pattern="^([a-zA-Z2-5]'?-?){1,30}$"
 										onblur="validateLname()"
 										placeholder="Last Name"
@@ -144,7 +146,9 @@ Description: Creating patient registration form
 									</input>
 							</td>
 							<td>
-									<span class="errMsg" id="fnameErrorMsg">Message</span>
+									<span class="errMsg" id="fnameErrorMsg"></span>
+									<span class="errMsg" id="midnameErrorMsg"></span>
+									<span class="errMsg" id="lnameErrorMsg"></span>
 							</td>
 						</tr>
 						<tr>
