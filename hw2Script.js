@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	  document.getElementById ("currentDate").innerHTML = currentDay; 
   }
   getDate();
+  getFooter();
 })
 
 /*<!--Adding script to bring footer into form. Script found at 
@@ -22,8 +23,8 @@ function getFooter() {
 
 function validateFname() 
   {
-    const fnameValid = document.getElementByID ("fnameValidate").value;
-    if(fnameValid < 1) {
+    const fnameValid = document.getElementById("fnameValidate").value;
+    if(fnameValid.length < 1) {
       document.getElementById("fnameErrorMsg").innerHTML = "Error: Name must be 1 or more characters";
       errorFlag = 1;
     }
