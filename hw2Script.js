@@ -24,7 +24,7 @@ function getFooter() {
 function validateFname() 
   {
     const fnameValid = document.getElementById("fnameValidate").value;
-    if(fnameValid.length < 1) {
+    if(fnameValid < 1) {
       document.getElementById("fnameErrorMsg").innerHTML = "Error: Name must be 1 or more characters";
       errorFlag = 1;
     }
@@ -33,9 +33,44 @@ function validateFname()
         document.getElementById("fnameErrorMsg").innerHTML = "";
       }
       else {
-        document.getElementById("fnameErrorMsg").innerHTML = "Error invalid characters: Name can only have Letters, apostrophes and dashes";
+        document.getElementById("fnameErrorMsg").innerHTML = "Error invalid characters: (Name can only have Letters, apostrophes and dashes)";
         errorFlag = 1;
       }
     }
   }
 
+  function validateMidname() 
+  {
+    const midnameValid = document.getElementById("midnameValidate").value;
+    if(midnameValid > 2 ) {
+      document.getElementById("midnameErrorMsg").innerHTML = "Error: Name must be only 1 character";
+      errorFlag = 1;
+    }
+    else {
+      if (midnameValid.match(/^[a-zA-Z]$/)) {
+        document.getElementById("midnameErrorMsg").innerHTML = "";
+      }
+      else {
+        document.getElementById("midnameErrorMsg").innerHTML = "Error invalid characters: (Name can only have Letters)";
+        errorFlag = 1;
+      }
+    }
+  }
+
+function validateLname() 
+  {
+    const lnameValid = document.getElementById("lnameValidate").value;
+    if(lnameValid < 1) {
+      document.getElementById("lnameErrorMsg").innerHTML = "Error: Name must be 1 or more characters";
+      errorFlag = 1;
+    }
+    else {
+      if (lnameValid.match(/^([a-zA-Z]'?-?){1,30}$/)) {
+        document.getElementById("lnameErrorMsg").innerHTML = "";
+      }
+      else {
+        document.getElementById("lnameErrorMsg").innerHTML = "Error invalid characters: (Name can only have Letters, apostrophes and dashes)";
+        errorFlag = 1;
+      }
+    }
+  }
