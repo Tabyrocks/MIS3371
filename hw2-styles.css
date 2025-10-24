@@ -79,9 +79,12 @@ input[type=email]:focus,[type=password]:focus,[type=address]:focus,[type=phone]:
 }
 
 .errMsg {
-	font-size: 20px;
-	color: red;
-	text-align: top;
+	display: block;
+	flex-wrap: wrap;
+	font-size: 15px;
+	width: 200px;
+	color: rgb(253, 20, 20);
+	text-align: left;
 }
 
 /*Creating the Red asterisk for the required fields*/
