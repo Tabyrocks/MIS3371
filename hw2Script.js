@@ -84,6 +84,37 @@ function validateLname()
     }
   }
 
+  function validateDob() 
+  {
+    //pulls the current date from the function getDate()
+    const currentDate = getElementById("currentDate").Date;
+    //bringing in the date the user enters
+    const userDate = getElementById("dobValidate").Date;
+    //Assigning th minimum date to be 120 years prior to currentDate
+    const minDate = getElementById("currentDate").Date;
+    minDate.setFullYear(minDate.getFullYear() - 120);
+
+    if (userDate > currentDate) {
+        document.getElementById("dateErrorMsg").innerHTML = "Error invalid Date: (Date cannot be in the future)";
+        dateErrorMsg.style.display = "block";
+        console.error("Error invalid Date: (Date cannot be in the future)")
+        errorFlag = 1;
+    }
+
+    else if (userDate <= minDate) {
+        document.getElementById("dateErrorMsg").innerHTML = "Error invalid Date: (Date must be within 120 years from today)";
+        dateErrorMsg.style.display = "block";
+        console.error("Error invalid Date: (Date must be within 120 years from today)")
+        errorFlag = 1;
+    }
+
+    else () => {
+        document.getElementById("dateErrorMsg").innerHTML = "";
+        dateErrorMsg.style.display = "none";
+    }
+    
+  }
+
   function validatePhone() 
   {
     const phoneValid = document.getElementById("phoneValidate").value;
