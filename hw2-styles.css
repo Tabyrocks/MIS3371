@@ -74,7 +74,7 @@ input[type=email]:focus,[type=password]:focus,[type=address]:focus,[type=phone]:
 }
 
 /*Assigning font-size to the input labels*/
-.ptname, .ptinfo, .address, .address-2, .e-contact, .e-contactinfo, .instructions, .medhistory-1, .medhistory-2, .health, .password, .ptlang, .ptmarital, .health-slider, .slider-start, .slider-end, .footer, .currentDate{
+.ptname, .ptinfo, .address, .address-2, .e-contact, .e-contactinfo, .instructions, .medhistory-1, .medhistory-2, .health, .password, .ptlang, .ptmarital, .health-slider, .slider-start, .slider-end, .footer, .currentDate, #infoReview{
 	font-size: 16px;
 }
 
@@ -279,6 +279,13 @@ button{
 }
 
 /*Created a different color for the submit and reset buttons so it would be easier to see which you a clicking on*/
+button[type=button]{
+	background-color: rgb(65, 155, 220);
+	border: solid gray;
+	font-weight: bold;
+	font-size: 16px;
+}
+
 button[type=submit]{
 	background-color: lightblue;
 	border: solid gray;
@@ -289,10 +296,11 @@ button[type=submit]{
 button[type=reset]{
 	background-color: black;
 	border: solid black;
-	color: red;
+	color: rgb(253, 20, 20);
 	
 	font-size: 16px;
 }
+
 button:hover{
 	background-color: #8DBCD6;
 }
@@ -326,4 +334,13 @@ button:hover{
 	margin-top: 15px;;
 }
 	
-	
+#infoReview	{
+	background-color: #8DBCD6;
+	color: rgb(47, 44, 44);
+	font-weight: bold;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-top: 20px;
+}
