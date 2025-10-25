@@ -69,7 +69,7 @@ input{
 }
 
 /*Setting up the focus when user clicks in one of the text boxes*/
-input[type=email]:focus,[type=password]:focus,[type=address]:focus,[type=phone]:focus,[type=text]:focus, #health-form:focus, #state:focus {
+input[type=email]:focus,[type=password]:focus,[type=address]:focus,[type=phone]:focus,[type=text]:focus, #health-form:focus, #state:focus, #dobValidate:focus {
 	background-color: lightblue;
 }
 
@@ -95,7 +95,7 @@ input[type=email]:focus,[type=password]:focus,[type=address]:focus,[type=phone]:
 
 /*Creating several entries to have the boxes/labels fit correctly and align together*/
 .patientname{
-	width: 24%;
+	width: 22%;
 	margin-left: 15px;
 }
 
@@ -107,9 +107,13 @@ input[type=email]:focus,[type=password]:focus,[type=address]:focus,[type=phone]:
 	width: 10%;
 }
 
+#dobValidate{
+	width: 12%;
+}
+
 .gender {
 	margin: 1px;
-	width: 5%;
+	width: 4%;
 	height: 18px;
 	padding: 0px;
 }
@@ -338,7 +342,7 @@ button:hover{
 	margin-top: 15px;;
 }
 
-#fnameErrorMsg, #midnameErrorMsg, #lnameErrorMsg, #emailErrorMsg, #ecFnameErrorMsg, #ecLnameErrorMsg, #phoneErrorMsg, #ecPhoneErrorMsg, #ecEmailErrorMsg {
+#fnameErrorMsg, #midnameErrorMsg, #lnameErrorMsg, #dobErrorMsg, #emailErrorMsg, #ecFnameErrorMsg, #ecLnameErrorMsg, #phoneErrorMsg, #ecPhoneErrorMsg, #ecEmailErrorMsg, #dateErrorMsg {
 	display: none;
 }
 	
