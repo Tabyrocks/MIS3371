@@ -525,6 +525,8 @@ Description: Creating patient registration form
 										type="email" 
 										name="email" 
 										class="email"
+										id="emailValidate"
+										onblur="validateEmail()"
 										pattern="^[a-zA-Z0-9._%+-]{5,30}+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
 										placeholder="Email@Domain.com"
 										title="Example: Email@Domain.com" 
@@ -533,6 +535,10 @@ Description: Creating patient registration form
 										required
 									>
 									</input>
+							</td>
+							<td>
+									<span class="errMsg" id="emailErrorMsg"></span>
+
 							</td>
 						</tr>
 					</tbody>
@@ -1024,7 +1030,7 @@ Description: Creating patient registration form
 
 				<!--Placeholder to bring in the footer-->
       <div id="footerPlaceholder"></div>  
-			<div id="infoReview">Test</div>
+			<span id="infoReview">Test</span>
 		</form>
 		<script
 			src="hw2Script.js"
