@@ -84,6 +84,27 @@ function validateLname()
     }
   }
 
+  function validatePhone() 
+  {
+    const phoneValid = document.getElementById("phoneValidate").value;
+    if(phoneValid < 10) {
+      document.getElementById("phoneErrorMsg").innerHTML = "Error: Phone number must be 10 to 12 characters";
+      phoneErrorMsg.style.display = "block";
+      errorFlag = 1;
+    }
+    else {
+      if (phoneValid.match(/[0-9]{3,3}?[-]?[0-9]{3,3}?[-]?[0-9]{4,4}$/)) {
+        document.getElementById("phoneErrorMsg").innerHTML = "";
+        phoneErrorMsg.style.display = "none";
+      }
+      else {
+        document.getElementById("phoneErrorMsg").innerHTML = "Phone Error: (Invalid or missing characters. Must be in 555-555-2222 or 5555552222 format)";
+        phoneErrorMsg.style.display = "block";
+        errorFlag = 1;
+      }
+    }
+  }
+
   function validateEmail() 
   {
     const emailValid = document.getElementById("emailValidate").value;
@@ -100,6 +121,87 @@ function validateLname()
       else {
         document.getElementById("emailErrorMsg").innerHTML = "Email Error: (Invalid or missing characters. Must be in email@domain.com format)";
         emailErrorMsg.style.display = "block";
+        errorFlag = 1;
+      }
+    }
+  }
+
+  function validateEcFname() 
+  {
+    const ecFnameValid = document.getElementById("ecFnameValidate").value;
+    if(ecFnameValid < 1) {
+      document.getElementById("ecFnameErrorMsg").innerHTML = "";
+      ecFnameErrorMsg.style.display = "none";
+    }
+    else {
+      if (ecFnameValid.match(/^([a-zA-Z]'?-?){1,30}$/)) {
+        document.getElementById("ecFnameErrorMsg").innerHTML = "";
+        ecFnameErrorMsg.style.display = "none";
+      }
+      else {
+        document.getElementById("ecFnameErrorMsg").innerHTML = "Error invalid first name: (Name can only have Letters, apostrophes and dashes)";
+        ecFnameErrorMsg.style.display = "block";
+        errorFlag = 1;
+      }
+    }
+  }
+
+
+  function validateEcLname() 
+  {
+    const ecLnameValid = document.getElementById("ecLnameValidate").value;
+    if(ecLnameValid < 1) {
+      document.getElementById("ecLnameErrorMsg").innerHTML = "";
+      ecLnameErrorMsg.style.display = "none";
+    }
+    else {
+      if (ecLnameValid.match(/^([a-zA-Z]'?-?){1,30}$/)) {
+        document.getElementById("ecLnameErrorMsg").innerHTML = "";
+        ecLnameErrorMsg.style.display = "none";
+      }
+      else {
+        document.getElementById("ecLnameErrorMsg").innerHTML = "Error invalid last name: (Name can only have Letters, apostrophes and dashes)";
+        ecLnameErrorMsg.style.display = "block";
+        errorFlag = 1;
+      }
+    }
+  }
+
+  function validateEcPhone() 
+  {
+    const ecPhoneValid = document.getElementById("ecPhoneValidate").value;
+    if(ecPhoneValid < 1) {
+      document.getElementById("ecPhoneErrorMsg").innerHTML = "";
+      ecPhoneErrorMsg.style.display = "none";
+    }
+    else {
+      if (ecPhoneValid.match(/[0-9]{3,3}?[-]?[0-9]{3,3}?[-]?[0-9]{4,4}$/)) {
+        document.getElementById("ecPhoneErrorMsg").innerHTML = "";
+        ecPhoneErrorMsg.style.display = "none";
+      }
+      else {
+        document.getElementById("ecPhoneErrorMsg").innerHTML = "Phone Error: (Invalid or missing characters. Must be in 555-555-2222 or 5555552222 format)";
+        ecPhoneErrorMsg.style.display = "block";
+        errorFlag = 1;
+      }
+    }
+  }
+
+  function validateEcEmail() 
+  {
+    const ecEmailValid = document.getElementById("ecEmailValidate").value;
+    if(ecEmailValid < 1) {
+      document.getElementById("ecEmailErrorMsg").innerHTML = "";
+      ecEmailErrorMsg.style.display = "none";
+    }
+    else {
+      if (ecEmailValid.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
+        document.getElementById("ecEmailErrorMsg").innerHTML = "";
+        ecEmailErrorMsg.style.display = "none";
+      }
+      else {
+        document.getElementById("ecEmailErrorMsg").innerHTML = "Email Error: (Invalid or missing characters. Must be in email@domain.com format)";
+        ecEmailErrorMsg.style.display = "block";
         errorFlag = 1;
       }
     }
