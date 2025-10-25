@@ -42,10 +42,10 @@ function validateFname()
   function validateMidname() 
   {
     const midnameValid = document.getElementById("midnameValidate").value;
-    if(midnameValid > 2 ) {
-      document.getElementById("midnameErrorMsg").innerHTML = "Error: Name must be only 1 character";
-      errorFlag = 1;
+    if(midnameValid < 1 ) {
+      document.getElementById("midnameErrorMsg").innerHTML = "";
     }
+
     else {
       if (midnameValid.match(/^[a-zA-Z]$/)) {
         document.getElementById("midnameErrorMsg").innerHTML = "";
