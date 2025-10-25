@@ -330,11 +330,16 @@ button:hover{
 	width: auto;
 }
 
-.footer-lines{
+.footer-lines {
 	margin-top: 15px;;
+}
+
+#fnameErrorMsg, #midnameErrorMsg, #lnameErrorMsg, #emailErrorMsg {
+	display: none;
 }
 	
 #infoReview	{
+	display: none;
 	background-color: #8DBCD6;
 	color: rgb(47, 44, 44);
 	font-weight: bold;
