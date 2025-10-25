@@ -69,7 +69,7 @@ input{
 }
 
 /*Setting up the focus when user clicks in one of the text boxes*/
-input[type=email]:focus,[type=password]:focus,[type=address]:focus,[type=phone]:focus,[type=text]:focus {
+input[type=email]:focus,[type=password]:focus,[type=address]:focus,[type=phone]:focus,[type=text]:focus, #health-form:focus, #state:focus {
 	background-color: lightblue;
 }
 
@@ -225,6 +225,11 @@ and adjust the font size and width*/
 	resize: none;
 }
 
+.health-slider{
+	margin-top: 20px;
+	margin-bottom: 25px;
+}
+
 /*Slider is assigned inline box with different background, added a border, padding and some margin*/
 #slider{
 	display: inline;
@@ -241,8 +246,7 @@ and adjust the font size and width*/
 	vertical-align: center;
 	height: 0px;
 	width: 30%;
-	margin-top: 30px;
-	margin-bottom: 30px;
+	margin-bottom: 50px;
 }
 
 #username{
@@ -334,7 +338,7 @@ button:hover{
 	margin-top: 15px;;
 }
 
-#fnameErrorMsg, #midnameErrorMsg, #lnameErrorMsg, #emailErrorMsg {
+#fnameErrorMsg, #midnameErrorMsg, #lnameErrorMsg, #emailErrorMsg, #ecFnameErrorMsg, #ecLnameErrorMsg, #phoneErrorMsg, #ecPhoneErrorMsg, #ecEmailErrorMsg {
 	display: none;
 }
 	
