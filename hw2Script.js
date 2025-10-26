@@ -382,41 +382,83 @@ function validateUserId()
     }
   }
 
+//Referencing code from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_password_val
 function validatePassword() 
   {
-    const passwordToValidate = document.getElementById("passwordValidate").value;
-    const letterReq = document.getElementById("letterReq")
-    const capLetterReq = document.getElementById("capReq")
-    const numbReq = document.getElementById("numberReq")
-    const specialCharReq = document.getElementById("spCharReq") 
+    var passwordToValidate = document.getElementById("passwordValidate");
+    var passMatch = document.getElementById("repeatPassword");
+    var letterReq = document.getElementById("letterReq");
+    var capLetterReq = document.getElementById("capReq");
+    var numbReq = document.getElementById("numberReq");
+    var specialCharReq = document.getElementById("spCharReq");
+    var passLength = document.getElementById("lengthReq");
+    var passMatchReq = document.getElementById("passMatch")
 
-    passwordToValidate.onfocus = function() {
-      document.getElementById("reqmstr").style.display = "block";
-    }
-    passwordToValidate.onblur = function() {
-      document.getElementById("reqmstr").style.display = "none";
-    }
     passwordToValidate.onkeyup = function() {
-      //Validating the lowercase letters
-      let lcLetters = /[a-z]/g;
-      if(passwordToValidate.value.match(lcLetters)) {
+
+      var passValue = passwordToValidate.value;
+      var matchedValue = passMatch.value;
+
+      //Verifying a the lowercase letter is in the password
+      if(/[a-z]/.test(passValue)) {
         letterReq.classList.remove("invalid");
         letterReq.classList.add("valid");
-      }
-      else {
+      } else {
         letterReq.classList.remove("valid");
         letterReq.classList.add("invalid")
       }
-    }
+  
+    //verifying a capital letter is included in the password
+      if(/[A-Z]/.test(passValue)) {
+        capLetterReq.classList.remove("invalid");
+        capLetterReq.classList.add("valid");
+      } else {
+        capLetterReq.classList.remove("valid");
+        capLetterReq.classList.add("invalid")
+      }
+    //Verifying a number is included in the password
+      if(/[0-9]/.test(passValue)) {
+        numbReq.classList.remove("invalid");
+        numbReq.classList.add("valid");
+      } else {
+        numbReq.classList.remove("valid");
+        numbReq.classList.add("invalid")
+      }
+    //Verifying a number is included in the password
+      if(/[!@#%^&*()\-_=+/><.,`~]/.test(passValue)) {
+        specialCharReq.classList.remove("invalid");
+        specialCharReq.classList.add("valid");
+      } else {
+        specialCharReq.classList.remove("valid");
+        specialCharReq.classList.add("invalid")
+      }
+      if(passValue === matchedValue && passValue !== "") {
+        passMatchReq.classList.remove("invalid");
+        passMatchReq.classList.add("valid");
+      } else {
+        passMatchReq.classList.remove("valid");
+        passMatchReq.classList.add("invalid")
+      }
+    //Verifying that the length of the password is minimum of 8 characters
+      if(passValue.length >= 8) {
+        passLength.classList.remove("invalid");
+        passLength.classList.add("valid");
+      } else {
+        passLength.classList.remove("valid");
+        passLength.classList.add("invalid");
+      } 
+    }; 
+  passMatch.onkeyup = passwordToValidate.onkeyup;
   }
-
+  
+/*
 function convertUserId() 
   {
     let userId = document.getElementById("userIdValidate");
     let convertUserLc = userId.toLowerCase();
     document.getElementById("infoReview").innerHTML = convertUserLc;
   }
-
+/*
 /*
 function reviewEntry() 
   {
