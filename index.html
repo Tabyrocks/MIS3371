@@ -308,7 +308,6 @@ Description: Creating patient registration form
 						</tr>
 					</tbody>
 				<table>
-		
 			<hr>
 				<!-- Creating section header for the Contact Information-->
 				<table>
@@ -981,18 +980,23 @@ Description: Creating patient registration form
 									<div id="reqmstr">
 										<div id="req1">
 											<li>
-												<ul id="require1"><em>Must be between 8 and 32 characters</em></ul>
+												<ul id="lengthReq"><em>Must be between 8 and 32 characters</em></ul>
 											</li>
 											<li>
-												<ul id="require2"><em>Contain at least 1 lowercase letter</em></ul>
+												<ul id="letterReq"><em>Contain at least 1 lowercase letter</em></ul>
 											</li>
 										</div>
 										<div id="req2">
 											<li>
-												<ul d="require3"><em>Contain at least 1 uppercase letter</em></ul>
+												<ul id="capReq"><em>Contain at least 1 uppercase letter</em></ul>
 											</li>
 											<li>
-												<ul d="require4"><em>Contain 1 number (0-9) and a special character</em></ul>
+												<ul id="numberReq"><em>Contain 1 number (0-9)</em></ul>
+											</li>
+										</div>
+										<div id="req3">
+											<li>
+												<ul id="spCharReq"><em>Contain a special character</em></ul>
 											</li>
 										</div>
 									</div>
@@ -1001,7 +1005,7 @@ Description: Creating patient registration form
 						<tr>
 							<td class="password">
 								<label
-									for="password"
+									for="passwordValidate"
 									id="required"
 								>
 									Password
@@ -1009,7 +1013,8 @@ Description: Creating patient registration form
 									<input 
 										type="password" 
 										name="password" 
-										id="password"
+										id="passwordValidate"
+										oninput="validatePassword()"
 										pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,32}$"
 										placeholder="Password"
 										title="Password must be 8 to 32 characters long, contain at least 1 upper case letter, 1 lowercase letter, 1 number and 1 special character."
@@ -1040,8 +1045,8 @@ Description: Creating patient registration form
 									</input>
 							</td>
 						</tr>
-						
 						<tr>
+
 							<!--Creating the submit and reset buttons. Added in the script to connect the submit button to
 							the thank-you page below-->
 							<td class="buttons">
