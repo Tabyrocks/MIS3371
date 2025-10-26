@@ -1,5 +1,6 @@
 // Adding in script to bring in current date. Found on W3schools.com
 document.addEventListener('DOMContentLoaded', (event) => {
+  numChangeSlider();
   setDate();
   getFooter();
 })
@@ -348,6 +349,18 @@ function validateEcEmail()
     }
   }
 
+//Referenced https://www.w3schools.com/howto/howto_js_rangeslider.asp to bring in the slider value
+function numChangeSlider()
+  {
+    let sliderNumsVal = document.getElementById("health-slide");
+    let sliderNumsOutput = document.getElementById("sliderNums");
+    sliderNumsOutput.innerHTML = sliderNumsVal.value;
+
+    sliderNumsVal.oninput = function() {
+      sliderNumsOutput.innerHTML = this.value; //To display the dynamic values when slider is moved
+    }
+  }
+  
 function validateUserId() 
   {
     const userIdValid = document.getElementById("userIdValidate").value;
