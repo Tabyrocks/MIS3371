@@ -342,12 +342,12 @@ button:hover{
 	margin-top: 15px;;
 }
 
-#fnameErrorMsg, #midnameErrorMsg, #lnameErrorMsg, #dobErrorMsg, #emailErrorMsg, #ecFnameErrorMsg, #ecLnameErrorMsg, #phoneErrorMsg, #ecPhoneErrorMsg, #ecEmailErrorMsg, #dateErrorMsg {
+#fnameErrorMsg, #midnameErrorMsg, #lnameErrorMsg, #dobErrorMsg, #emailErrorMsg, #ecFnameErrorMsg, #ecLnameErrorMsg, #phoneErrorMsg, #ecPhoneErrorMsg, #ecEmailErrorMsg, #dateErrorMsg, #ssnErrorMsg, #addressErrorMsg, #address2ErrorMsg, #cityErrorMsg, #zipErrorMsg, #userIdErrorMsg {
 	display: none;
 }
 	
 #infoReview	{
-	display: none;
+	display: block;
 	background-color: #8DBCD6;
 	color: rgb(47, 44, 44);
 	font-weight: bold;
