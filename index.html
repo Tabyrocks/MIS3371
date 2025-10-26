@@ -168,7 +168,7 @@ Description: Creating patient registration form
 									>
 									</input>
 								<label
-									for="ssnum"
+									for="ssnValidate"
 									id="required"
 								>
 									SSN
@@ -176,8 +176,8 @@ Description: Creating patient registration form
 									<input 
 										type="password" 
 										name="ssnum" 
-										id="ssnum"
-										onblur="validateSSNumber()" 
+										id="ssnValidate"
+										onblur="validateSsn()" 
 										placeholder="***-**-1234"
 										pattern="[0-9]{3,3}?[-]?[0-9]{2,2}?[-]?[0-9]{4,4}$"
 										title="Only numbers or dashes (no spaces) Example: 123-45-6789 or 123456789" 
@@ -219,6 +219,7 @@ Description: Creating patient registration form
 							</td>	
 							<td>
 								<span class="errMsg" id="dateErrorMsg"></span>
+								<span class="errMsg" id="ssnErrorMsg"></span>
 							</td>
 						</tr>
 						<tr>
@@ -327,7 +328,7 @@ Description: Creating patient registration form
 						<tr>
 							<td class="address">
 								<label 
-									for="validateAddress"
+									for="addressValidate"
 									id="required"
 								>
 									Address 
@@ -336,7 +337,8 @@ Description: Creating patient registration form
 										type="address" 
 										name="address" 
 										class="address1"
-										id="validateAddress"
+										id="addressValidate"
+										onblur="validateAddress()"
 										autocomplete="off"
 										placeholder="Street Address"
 										title="Example: 123 Main Street (Between 2-30 characters long)"
@@ -346,18 +348,22 @@ Description: Creating patient registration form
 									>
 									</input>
 							</td>
+							<td>
+								<span class="errMsg" id="addressErrorMsg"></span>
+							</td>
 						</tr>
 						<tr>
 							<td class="address-2">
 								<label
-									for="validateAddressTwo">
+									for="address2Validate">
 									Address 2
 								</label>
 									<input 
 										type="address" 
 										name="address"
 										autocomplete="off"
-										id="validateAddressTwo"
+										onblur="validateAddress2() "
+										id="address2Validate"
 										class="address2" 
 										placeholder="Street Address Line 2"
 										title="Example: Apt 202 (Between 2-30 characters long)"
@@ -366,11 +372,14 @@ Description: Creating patient registration form
 									>
 									</input>
 							</td>
+							<td>
+								<span class="errMsg" id="address2ErrorMsg"></span>
+							</td>
 						</tr>
 						<tr>
 							<td class="address">
 								<label
-									for="validCity" 
+									for="cityValidate" 
 									id="required"
 								>
 									City
@@ -379,7 +388,8 @@ Description: Creating patient registration form
 										type="text" 
 										name="city" 
 										class="city"
-										id="validCity" 
+										id="cityValidate"
+										onblur="validateCity() "
 										placeholder="City"
 										title="Example: Houston (Between 2-30 characters long)"
 										minlength="2"
@@ -460,7 +470,7 @@ Description: Creating patient registration form
 									</select>
 							
 								<label
-									for="validZip"
+									for="zipValidate"
 									class="ziptxt"
 									id="required"
 								>
@@ -470,15 +480,20 @@ Description: Creating patient registration form
 										type="text" 
 										name="zip" 
 										class="zip"
-										id="validZip"
-										pattern="[0-9]{5,5}$" 
+										id="zipValidate"
+										onblur="validateZip() "
+										pattern="^\d{5}(?:[-]\d{4})?$" 
 										placeholder="Zip Code"
-										title="(Must be 5 digits) Example: 90210"
+										title="(Must be 5 - 10 characters) Example: 90210 or 90210-2100"
 										minlength="5"
-										maxlength="5"
+										maxlength="10"
 										required
 									>
 									</input>
+							</td>
+							<td>
+								<span class="errMsg" id="cityErrorMsg"></span>
+								<span class="errMsg" id="zipErrorMsg"></span>
 							</td>
 						</tr>
 						<tr>
@@ -935,7 +950,7 @@ Description: Creating patient registration form
 							<!--Adding class of instructions so I can style and resize the password instructions-->
 							<td class="instructions">
 								<label
-									for="username"
+									for="userIdValidate"
 									id="required"
 								>	
 									Username
@@ -944,7 +959,8 @@ Description: Creating patient registration form
 										type="text" 
 										name="username"
 										autocomplete="off" 
-										id="username" 
+										id="userIdValidate"
+										onblur="validateUserId()"
 										placeholder="Username"
 										title="Username must be 5 to 30 characters (Only letters, numbers(but first character cannot be a number), underscore or dashes allowed. No other special characters and No Spaces)"
 										minlength="5" 
@@ -952,26 +968,33 @@ Description: Creating patient registration form
 										required
 									>
 									</input>
-								<p id="pass-text">Password Requirements:<p>
-								<div id="reqmstr">
-									<div id="req1">
-										<li>
-											<ul><em>Must be between 8 and 32 characters</em></ul>
-										</li>
-										<li>
-											<ul><em>Contain at least 1 lowercase letter</em></ul>
-										</li>
-									</div>
-									<div id="req2">
-										<li>
-											<ul><em>Contain at least 1 uppercase letter</em></ul>
-										</li>
-										<li>
-											<ul><em>Contain 1 number (0-9) and a special character</em></ul>
-										</li>
-									</div>
-								</div>
 							</td>
+							<td>
+								<span class="errMsg" id="userIdErrorMsg"></span>
+							</td>
+						</tr>
+						<tr>
+							<td class="instructions">
+									<p id="pass-text">Password Requirements:<p>
+									<div id="reqmstr">
+										<div id="req1">
+											<li>
+												<ul id="require1"><em>Must be between 8 and 32 characters</em></ul>
+											</li>
+											<li>
+												<ul id="require2"><em>Contain at least 1 lowercase letter</em></ul>
+											</li>
+										</div>
+										<div id="req2">
+											<li>
+												<ul d="require3"><em>Contain at least 1 uppercase letter</em></ul>
+											</li>
+											<li>
+												<ul d="require4"><em>Contain 1 number (0-9) and a special character</em></ul>
+											</li>
+										</div>
+									</div>
+							</td>	
 						</tr>
 						<tr>
 							<td class="password">
@@ -1047,7 +1070,7 @@ Description: Creating patient registration form
 
 				<!--Placeholder to bring in the footer-->
       <div id="footerPlaceholder"></div>  
-			<span id="infoReview">Test</span>
+			<span id="infoReview" >Test</span>
 		</form>
 		<script
 			src="hw2Script.js"
