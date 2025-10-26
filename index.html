@@ -980,23 +980,26 @@ Description: Creating patient registration form
 									<div id="reqmstr">
 										<div id="req1">
 											<li>
-												<ul id="lengthReq"><em>Must be between 8 and 32 characters</em></ul>
+												<ul class="other" id="lengthReq"><em>Must be between 8 and 32 characters</em></ul>
 											</li>
 											<li>
-												<ul id="letterReq"><em>Contain at least 1 lowercase letter</em></ul>
+												<ul class="other" id="letterReq"><em>Contain at least 1 lowercase letter</em></ul>
 											</li>
 										</div>
 										<div id="req2">
 											<li>
-												<ul id="capReq"><em>Contain at least 1 uppercase letter</em></ul>
+												<ul class="other" id="capReq"><em>Contain at least 1 uppercase letter</em></ul>
 											</li>
 											<li>
-												<ul id="numberReq"><em>Contain 1 number (0-9)</em></ul>
+												<ul class="other" id="numberReq"><em>Contain 1 number (0-9)</em></ul>
 											</li>
 										</div>
 										<div id="req3">
 											<li>
-												<ul id="spCharReq"><em>Contain a special character</em></ul>
+												<ul class="other" id="spCharReq"><em>Contain a special character</em></ul>
+											</li>
+											<li>
+												<ul class="other" id="passMatch"><em>Passwords must match</em></ul>
 											</li>
 										</div>
 									</div>
@@ -1012,9 +1015,10 @@ Description: Creating patient registration form
 								</label>
 									<input 
 										type="password" 
-										name="password" 
+										name="passwordValidate" 
 										id="passwordValidate"
-										oninput="validatePassword()"
+										onfocus="validatePassword()"
+										ononkeyup = "validatePassword()"
 										pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,32}$"
 										placeholder="Password"
 										title="Password must be 8 to 32 characters long, contain at least 1 upper case letter, 1 lowercase letter, 1 number and 1 special character."
@@ -1025,7 +1029,7 @@ Description: Creating patient registration form
 									</input>
 								<label
 									for="repeat-password"
-									class="repeat-password"
+									class="repeatPassword"
 									id="required"
 								>
 									Confirm Password
@@ -1033,7 +1037,9 @@ Description: Creating patient registration form
 									<input 
 										type="password" 
 										name="password" 
-										id="repeat-password" 
+										id="repeatPassword"
+										onfocus="validatePassword()"
+										ononkeyup = "validatePassword()"
 										placeholder="Repeat Password"
 										pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,32}$"
 										title="Re-enter password (Passwords must match)"
@@ -1066,6 +1072,7 @@ Description: Creating patient registration form
 																	
 								<button 
 									type="reset"
+									id="clearButton"
 								>
 									Clear and Start Over
 								</button>
