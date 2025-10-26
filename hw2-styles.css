@@ -78,6 +78,8 @@ input[type=email]:focus,[type=password]:focus,[type=address]:focus,[type=phone]:
 	font-size: 16px;
 }
 
+
+
 .errMsg {
 	display: block;
 	flex-wrap: wrap;
@@ -253,6 +255,11 @@ and adjust the font size and width*/
 	margin-bottom: 50px;
 }
 
+#sliderNums {
+	font-size: 20px;
+	font-weight: bold;
+}
+
 #username{
 	width: 20%;
 }
@@ -344,6 +351,10 @@ button:hover{
 
 #fnameErrorMsg, #midnameErrorMsg, #lnameErrorMsg, #dobErrorMsg, #emailErrorMsg, #ecFnameErrorMsg, #ecLnameErrorMsg, #phoneErrorMsg, #ecPhoneErrorMsg, #ecEmailErrorMsg, #dateErrorMsg, #ssnErrorMsg, #addressErrorMsg, #address2ErrorMsg, #cityErrorMsg, #zipErrorMsg, #userIdErrorMsg {
 	display: none;
+}
+
+.sliderNumbers {
+	text-align: bottom;
 }
 	
 #infoReview	{
