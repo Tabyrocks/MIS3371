@@ -908,23 +908,25 @@ Description: Creating patient registration form
 										for="health-slide"
 										class="slider-start"
 									>
-										<em>0 - Not very healthy<em>
+										<em>Not healthy<em>
 									</label>
+
 									<input
 										type="range"
 										id="health-slide"
-										min="0"
+										min="1"
 										max="10"
 										value="1"
 										step="1"
 										title="Slide from left to right based on how you would rate your overall health"
 									>
 									</input>
+									<span class="sliderNumbers" id="sliderNums"></span>
 									<!--Adding in text on each end of the slider to show what each side means to the user-->
 									<label 
 										for="health-slide"
 										class="slider-end">
-										<em>10 - Very healthy<em>
+										<em>Very healthy<em>
 									</label>
 								</div>
 							</td>
