@@ -382,6 +382,34 @@ function validateUserId()
     }
   }
 
+function validatePassword() 
+  {
+    const passwordToValidate = document.getElementById("passwordValidate").value;
+    const letterReq = document.getElementById("letterReq")
+    const capLetterReq = document.getElementById("capReq")
+    const numbReq = document.getElementById("numberReq")
+    const specialCharReq = document.getElementById("spCharReq") 
+
+    passwordToValidate.onfocus = function() {
+      document.getElementById("reqmstr").style.display = "block";
+    }
+    passwordToValidate.onblur = function() {
+      document.getElementById("reqmstr").style.display = "none";
+    }
+    passwordToValidate.onkeyup = function() {
+      //Validating the lowercase letters
+      let lcLetters = /[a-z]/g;
+      if(passwordToValidate.value.match(lcLetters)) {
+        letterReq.classList.remove("invalid");
+        letterReq.classList.add("valid");
+      }
+      else {
+        letterReq.classList.remove("valid");
+        letterReq.classList.add("invalid")
+      }
+    }
+  }
+
 function convertUserId() 
   {
     let userId = document.getElementById("userIdValidate");
