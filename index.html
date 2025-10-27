@@ -1,5 +1,5 @@
 <!--
-Program name: patient-form.html
+Program name: index.html
 Author: Tabitha Becker
 Date created: 2025-09-10
 Description: Creating patient registration form
@@ -34,6 +34,7 @@ Description: Creating patient registration form
 		<form 
 			name="med-signup"
 			id="signup"
+			onreset="removeInput()"
 			action="hw2-thankyou.html"
       method="get"
         >
@@ -962,6 +963,7 @@ Description: Creating patient registration form
 										autocomplete="off" 
 										id="userIdValidate"
 										onblur="validateUserId()"
+										oninput="validateUserId()"
 										placeholder="Username"
 										title="Username must be 5 to 30 characters (Only letters, numbers(but first character cannot be a number), underscore or dashes allowed. No other special characters and No Spaces)"
 										minlength="5" 
@@ -973,6 +975,10 @@ Description: Creating patient registration form
 							<td>
 								<span class="errMsg" id="userIdErrorMsg"></span>
 							</td>
+					</tbody>
+				</table>
+				<table>
+					<tbody>
 						</tr>
 						<tr>
 							<td class="instructions">
@@ -1028,7 +1034,7 @@ Description: Creating patient registration form
 									>
 									</input>
 								<label
-									for="repeat-password"
+									for="repeatPassword"
 									class="repeatPassword"
 									id="required"
 								>
@@ -1059,6 +1065,7 @@ Description: Creating patient registration form
 								<button 
 									type="button"
 									id="review"
+									onclick="reviewData()"
 								>
 									Review
 								</button>
@@ -1083,9 +1090,11 @@ Description: Creating patient registration form
 				</table>
 
 				<!--Placeholder to bring in the footer-->
-      <div id="footerPlaceholder"></div>  
-			<span id="infoReview" >Test</span>
+      <div id="footerPlaceholder"></div>
+			<!--Placeholder for re-displaying the inputted data-->  
+			<span id="infoReview"></span>
 		</form>
+		<!--Retrieving the javascript file-->
 		<script
 			src="hw2Script.js"
 		>
