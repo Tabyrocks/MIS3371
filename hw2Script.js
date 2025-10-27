@@ -1,19 +1,31 @@
-// Adding in script to bring in current date. Found on W3schools.com
-document.addEventListener('DOMContentLoaded', (event) => {
-  numChangeSlider();
-  setDate();
-  getFooter();
-})
-  
-function getDate() {
-  const dateChange = new Date();
-  let currentDay = dateChange.toLocaleDateString();
-  return currentDay;
-}
+/*
+Program name: hw2Script.js
+Author: Tabitha Becker
+Date created: 2025-10-11
+Description: Script to bring in functionality to form
+*/
 
-function setDate() {
-  document.getElementById ("currentDate").innerHTML = getDate(); 
-}
+//Adding an event listener to call the slider, date and footer functions
+document.addEventListener('DOMContentLoaded', (event) => 
+  {
+    numChangeSlider();
+    setDate();
+    getFooter();
+  })
+
+// Adding in script to get current date and return it. Originally found on W3schools.com then modified
+function getDate() 
+  {
+    const dateChange = new Date();
+    let currentDay = dateChange.toLocaleDateString();
+    return currentDay;
+  }
+
+// Adding script to set the current date on the form
+function setDate() 
+  {
+    document.getElementById ("currentDate").innerHTML = getDate(); 
+  }
 
 /*<!--Adding script to bring footer into form. Script found at 
 https://stackoverflow.com/questions/63663201/i-use-a-fetch-statement-to-retrieve-my-html-footer-and-include-it-on-every-page*/
@@ -27,10 +39,12 @@ function getFooter()
     .catch(error => console.error('Error loading footer:', error));
   }
 
+  //Validating the first name. The display on the css file is set to none but changes to block when the error is present. 
+  // Referencing https://profjake.w3spaces.com/MIS3371/homework3.html 
 function validateFname() 
   {
     const fnameValid = document.getElementById("fnameValidate").value;
-    if(fnameValid < 1) {
+    if(fnameValid.length < 1) {
       document.getElementById("fnameErrorMsg").innerHTML = "Error: First name must be 1 or more characters";
       fnameErrorMsg.style.display = "block";
       errorFlag = 1;
@@ -47,11 +61,12 @@ function validateFname()
       }
     }
   }
-
+  //Validating the middle name. The error only displays when an invalid character is added. Otherwise no error will appear.
+  // Referencing https://profjake.w3spaces.com/MIS3371/homework3.html 
 function validateMidname() 
   {
     const midnameValid = document.getElementById("midnameValidate").value;
-    if(midnameValid < 1 ) {
+    if(midnameValid.length < 1 ) {
       document.getElementById("midnameErrorMsg").innerHTML = "";
       midnameErrorMsg.style.display = "none";
     }
@@ -68,11 +83,11 @@ function validateMidname()
       }
     }
   }
-
+//Validating last name 
 function validateLname() 
   {
     const lnameValid = document.getElementById("lnameValidate").value;
-    if(lnameValid < 1) {
+    if(lnameValid.length < 1) {
       document.getElementById("lnameErrorMsg").innerHTML = "Error: Last name must be 1 or more characters";
       lnameErrorMsg.style.display = "block";
       errorFlag = 1;
@@ -89,11 +104,11 @@ function validateLname()
       }
     }
   }
-  
+ //Validating SSN. The regex pattern makes the dashes optional.
 function validateSsn() 
   {
     const ssnValid = document.getElementById("ssnValidate").value;
-    if(ssnValid < 9) {
+    if(ssnValid.length < 9) {
       document.getElementById("ssnErrorMsg").innerHTML = "Error: SSN must be 9 to 11 characters";
       ssnErrorMsg.style.display = "block";
       errorFlag = 1;
@@ -110,8 +125,7 @@ function validateSsn()
       }
     }
   }
-
-
+ //Validating Date of Birth.
 function validateDob() 
   {
     //pulls the current date from the function getDate()
@@ -122,35 +136,38 @@ function validateDob()
     const minDate = new Date(getDate());
     minDate.setFullYear(minDate.getFullYear() - 120);
 
+    //Checking if the user's date is greater than the current date to make sure the date is not in the future.
     if (userDate > currentDate) {
         document.getElementById("dateErrorMsg").innerHTML = "Error invalid Date: (Date cannot be in the future)";
         dateErrorMsg.style.display = "block";
         console.error("Error invalid Date: (Date cannot be in the future)")
         errorFlag = 1;
     }
-
+    //Checking if the user's date is less than the minimum date to make sure the date is not more than 120 years from current date.
     else if (userDate <= minDate) {
         document.getElementById("dateErrorMsg").innerHTML = "Error invalid Date: (Date must be within 120 years from today)";
         dateErrorMsg.style.display = "block";
         console.error("Error invalid Date: (Date must be within 120 years from today)")
         errorFlag = 1;
     }
-
+    //If date is within range the else statement clears the error message.
     else {
         document.getElementById("dateErrorMsg").innerHTML = "";
         dateErrorMsg.style.display = "none";
     }
-    
   }
-
+//Validating the phone number.
 function validatePhone() 
   {
+    //Retrieving the entered phone number's value
     const phoneValid = document.getElementById("phoneValidate").value;
-    if(phoneValid < 10) {
+    //Checking if the phone number length is at least 10 characters.
+    if(phoneValid.length < 10) {
       document.getElementById("phoneErrorMsg").innerHTML = "Error: Phone number must be 10 to 12 characters";
       phoneErrorMsg.style.display = "block";
       errorFlag = 1;
     }
+    //Phone number can be added with only digits or it can optionally have dashes but the dashes need to be in the correct spots.
     else {
       if (phoneValid.match(/[0-9]{3,3}?[-]?[0-9]{3,3}?[-]?[0-9]{4,4}$/)) {
         document.getElementById("phoneErrorMsg").innerHTML = "";
@@ -163,11 +180,12 @@ function validatePhone()
       }
     }
   }
-
+//Verifying email address to make sure it is at least 5 characters long, 
+// there is an @ symbol and it must have a dot and at least 2 characters after the dot. 
 function validateEmail() 
   {
     const emailValid = document.getElementById("emailValidate").value;
-    if(emailValid < 5) {
+    if(emailValid.length < 5) {
       document.getElementById("emailErrorMsg").innerHTML = "Error: email address must be 5 or more characters";
       emailErrorMsg.style.display = "block";
       errorFlag = 1;
@@ -184,11 +202,11 @@ function validateEmail()
       }
     }
   }
-
+//Validating the address to make sure it only includes numbers, letters, comma, period, apostrophe, hyphen or a hashtag. 
 function validateAddress() 
   {
     const addressValid = document.getElementById("addressValidate").value;
-    if(addressValid < 2) {
+    if(addressValid.length < 2) {
       document.getElementById("addressErrorMsg").innerHTML = "Error: address must be 2 or more characters";
       addressErrorMsg.style.display = "block";
       errorFlag = 1;
@@ -205,11 +223,11 @@ function validateAddress()
       }
     }
   }
-
+//Address 2 is optional but if entered, validating the address to make sure it only includes numbers, letters, comma, period, apostrophe, hyphen or a hashtag. 
 function validateAddress2() 
   {
     const address2Valid = document.getElementById("address2Validate").value;
-    if(address2Valid < 1) {
+    if(address2Valid.length < 1) {
       document.getElementById("address2ErrorMsg").innerHTML = "";
       address2ErrorMsg.style.display = "none";
     }
@@ -225,11 +243,11 @@ function validateAddress2()
       }
     }
   }
-
+//Validating the City
 function validateCity() 
   {
     const cityValid = document.getElementById("cityValidate").value;
-    if(cityValid < 2) {
+    if(cityValid.length < 2) {
       document.getElementById("cityErrorMsg").innerHTML = "Error: City must be 2 or more characters";
       cityErrorMsg.style.display = "block";
       errorFlag = 1;
@@ -246,11 +264,11 @@ function validateCity()
       }
     }
   }
-
+//Validating the zip code. Must be at least 5 digits but can optionally choose a - and four more digits.
 function validateZip() 
   {
     const zipValid = document.getElementById("zipValidate").value;
-    if(zipValid < 5) {
+    if(zipValid.length < 5) {
       document.getElementById("zipErrorMsg").innerHTML = "Error: Zip Code at least 5 characters";
       zipErrorMsg.style.display = "block";
       errorFlag = 1;
@@ -267,11 +285,11 @@ function validateZip()
       }
     }
   }
-
+//Validating Emergency Contact information. All ec info is optional so not error will show unless something is entered incorrectly.
 function validateEcFname() 
   {
     const ecFnameValid = document.getElementById("ecFnameValidate").value;
-    if(ecFnameValid < 1) {
+    if(ecFnameValid.length < 1) {
       document.getElementById("ecFnameErrorMsg").innerHTML = "";
       ecFnameErrorMsg.style.display = "none";
     }
@@ -288,11 +306,10 @@ function validateEcFname()
     }
   }
 
-
 function validateEcLname() 
   {
     const ecLnameValid = document.getElementById("ecLnameValidate").value;
-    if(ecLnameValid < 1) {
+    if(ecLnameValid.length < 1) {
       document.getElementById("ecLnameErrorMsg").innerHTML = "";
       ecLnameErrorMsg.style.display = "none";
     }
@@ -312,7 +329,7 @@ function validateEcLname()
 function validateEcPhone() 
   {
     const ecPhoneValid = document.getElementById("ecPhoneValidate").value;
-    if(ecPhoneValid < 1) {
+    if(ecPhoneValid.length < 1) {
       document.getElementById("ecPhoneErrorMsg").innerHTML = "";
       ecPhoneErrorMsg.style.display = "none";
     }
@@ -332,7 +349,7 @@ function validateEcPhone()
 function validateEcEmail() 
   {
     const ecEmailValid = document.getElementById("ecEmailValidate").value;
-    if(ecEmailValid < 1) {
+    if(ecEmailValid.length < 1) {
       document.getElementById("ecEmailErrorMsg").innerHTML = "";
       ecEmailErrorMsg.style.display = "none";
     }
@@ -357,30 +374,34 @@ function numChangeSlider()
     sliderNumsOutput.innerHTML = sliderNumsVal.value;
 
     sliderNumsVal.oninput = function() {
-      sliderNumsOutput.innerHTML = this.value; //To display the dynamic values when slider is moved
+      sliderNumsOutput.innerHTML = this.value; //When slider is moved. This.value will update the displayed number on the slider.
     }
   }
-  
+//Checking the User Id to ensure that it doesn't have any spaces, it doesn't start with a number, it is at least 5 characters long and
+//the only special characters are a underscore or a dash.
 function validateUserId() 
   {
     const userIdValid = document.getElementById("userIdValidate").value;
-    if(userIdValid < 5) {
-      document.getElementById("userIdErrorMsg").innerHTML = "Error: Username is required and must be 5 or more characters. It cannot begin with a number";
+    const errorMsg = document.getElementById("userIdErrorMsg")
+    let errorFlag = 0;
+
+    if(userIdValid.length < 5) {
+      errorMsg.innerHTML = "Error: Username is required and must be 5 or more characters. It cannot begin with a number";
+      errorMsg.style.display = "block";
+      errorFlag = 1;
+      }
+    else if (!userIdValid.match(/^[a-zA-Z][a-zA-Z0-9_-]*$/)) {
+      errorMsg.innerHTML = "Username Error: (Invalid characters- only letters, numbers, underscore or dashes allowed. No spaces.)";
       userIdErrorMsg.style.display = "block";
       errorFlag = 1;
-    }
+      }
     else {
-      if (userIdValid.match(/^[a-zA-Z][a-zA-Z0-9_-]{5,}$/)) {
-        document.getElementById("userIdErrorMsg").innerHTML = "";
-        userIdErrorMsg.style.display = "none";
+      errorMsg.innerHTML = "";
+      errorMsg.style.display = "none";
       }
-      else {
-        document.getElementById("userIdErrorMsg").innerHTML = "Username Error: (Invalid characters- only letters, numbers, underscore or dashes allowed. No spaces.";
-        userIdErrorMsg.style.display = "block";
-        errorFlag = 1;
-      }
-    }
+    return errorFlag;
   }
+  
 
 //Referencing code from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_password_val
 function validatePassword() 
@@ -402,10 +423,10 @@ function validatePassword()
       //Verifying a the lowercase letter is in the password
       if(/[a-z]/.test(passValue)) {
         letterReq.classList.remove("invalid");
-        letterReq.classList.add("valid");
+        letterReq.classList.add("valid");//This will change the class to valid and triggers the css script to change color to green.
       } else {
         letterReq.classList.remove("valid");
-        letterReq.classList.add("invalid")
+        letterReq.classList.add("invalid")//This will change the class to invalid and triggers the css script to change color to red.
       }
   
     //verifying a capital letter is included in the password
@@ -432,6 +453,7 @@ function validatePassword()
         specialCharReq.classList.remove("valid");
         specialCharReq.classList.add("invalid")
       }
+      //This checks the password against the reset password.
       if(passValue === matchedValue && passValue !== "") {
         passMatchReq.classList.remove("invalid");
         passMatchReq.classList.add("valid");
@@ -448,30 +470,53 @@ function validatePassword()
         passLength.classList.add("invalid");
       } 
     }; 
-  passMatch.onkeyup = passwordToValidate.onkeyup;
+  passMatch.onkeyup = passwordToValidate.onkeyup; 
   }
   
-/*
+/* I couldn't get the below codes to work properly. The convertUserId() was to convert the inputted userid to lowercase. 
+The removeInput() function was supposed to clear the content from the review form once the submit was clicked
+The reviewData() function was supposed to re-display the inputted data after the review button was clicked.
+
+
 function convertUserId() 
   {
     let userId = document.getElementById("userIdValidate");
     let convertUserLc = userId.toLowerCase();
     document.getElementById("infoReview").innerHTML = convertUserLc;
   }
+*/
+
+/*Referencing https://profjake.w3spaces.com/MIS3371/homework3.html for the removeInput() function*/
 /*
-/*
-function reviewEntry() 
+function removeInput() 
   {
-    const reviewContainer = document.getElementById("infoReview");
-    const reviewTable = document.createElement("table");
-    const reviewTableHeader = document.createElement("thead");
-    const reviewTableBody = document.createElement("tbody")
-
-    //Creating header row and the cells
-    const reviewHeaderRow = document.createElement("tr");
-    const reviewColumns = ["C1", "C2", "C3"];
-      reviewColumns.forEach()
-
+    document.getElementById("infoReview").innerHTML = "clear";
   }
 
-  */
+function reviewData() {
+    var reviewContents = document.getElementById("infoReview");
+    var reviewOutput = `
+      <table class="output">
+      <tr><th>Field Name</th><th>Data Type</th><th>Entered</th></tr>`;
+
+    for (var review = 0; review < reviewContents.length; review++) {
+      var data = reviewContents.elements[review];
+      var dataType = data.type;
+      var enteredValue = "";
+      if (dataType === "checkbox") {
+        enteredValue = data.checked ? "Checked" : "Unchecked";
+      }
+      else {
+        enteredValue = data.value;
+      }
+      reviewOutput += `
+        <tr>
+          <td>${data.name}</td>
+          <td>${dataType}</td>
+          <td class="outputData">${enteredValue}</td?>
+        </tr>`;
+    }
+    reviewOutput += "</table>";
+    document.getElementById("reviewOutput").innerHTML = reviewOutput;
+}
+*/
