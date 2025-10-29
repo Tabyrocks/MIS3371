@@ -4,6 +4,11 @@ Author: Tabitha Becker
 Date created: 2025-10-11
 Description: Script to bring in functionality to form
 */
+//Adding the variable for the error flag
+function errorFlag() {
+  var errorFlag = 0;
+  console.log(errorFlag);
+}
 
 //Adding an event listener to call the slider, date and footer functions
 document.addEventListener('DOMContentLoaded', (event) => 
@@ -472,51 +477,53 @@ function validatePassword()
     }; 
   passMatch.onkeyup = passwordToValidate.onkeyup; 
   }
-  
-/* I couldn't get the below codes to work properly. The convertUserId() was to convert the inputted userid to lowercase. 
-The removeInput() function was supposed to clear the content from the review form once the submit was clicked
-The reviewData() function was supposed to re-display the inputted data after the review button was clicked.
-
-
-function convertUserId() 
-  {
-    let userId = document.getElementById("userIdValidate");
-    let convertUserLc = userId.toLowerCase();
-    document.getElementById("infoReview").innerHTML = convertUserLc;
-  }
-*/
 
 /*Referencing https://profjake.w3spaces.com/MIS3371/homework3.html for the removeInput() function*/
-/*
 function removeInput() 
   {
-    document.getElementById("infoReview").innerHTML = "clear";
+    document.getElementById("infoReview").innerHTML = "";
   }
 
+/*Referencing https://profjake.w3spaces.com/MIS3371/homework3.html for the reviewData() function*/
 function reviewData() {
-    var reviewContents = document.getElementById("infoReview");
-    var reviewOutput = `
-      <table class="output">
-      <tr><th>Field Name</th><th>Data Type</th><th>Entered</th></tr>`;
+    //Creating variables
+    var reviewContents = document.getElementById("medSignupFrm");
+    var reviewOutput;
+    var dataType;
+    var review;
+    
+    //Creating table row and headers
+    reviewOutput = "<table class='dataOutput'><th>Field Name</th><th>Data Type</th><th>Entered Value</th></tr>";
 
     for (var review = 0; review < reviewContents.length; review++) {
-      var data = reviewContents.elements[review];
-      var dataType = data.type;
-      var enteredValue = "";
-      if (dataType === "checkbox") {
-        enteredValue = data.checked ? "Checked" : "Unchecked";
-      }
-      else {
-        enteredValue = data.value;
-      }
-      reviewOutput += `
-        <tr>
-          <td>${data.name}</td>
-          <td>${dataType}</td>
-          <td class="outputData">${enteredValue}</td?>
-        </tr>`;
+      console.log("item: "+review+" "+reviewContents.elements[review].name+" = "+reviewContents.elements[review].value);
+      dataType = reviewContents.elements[review].type;
+      switch (dataType) {
+        case "checkbox":
+          if (reviewContents.elements[review].checked) {
+            reviewOutput = reviewOutput + "<tr><td>"+reviewContents.elements[review].name+"</td>";
+            reviewOutput = reviewOutput + "<td>"+dataType+ "</td>";
+            reviewOutput = reviewOutput + "<td class='reviewOutput'>Checked</td></tr>";
+          }
+          break;
+        case "radio":
+          if (reviewContents.elements[review].checked) {
+            reviewOutput = reviewOutput + "<tr><td>"+reviewContents.elements[review].name+"</td>";
+            reviewOutput = reviewOutput + "<td>"+dataType+ "</td>";
+            reviewOutput = reviewOutput + "<td class='reviewOutput'>"+ reviewContents.elements[review].value +"</td></tr>";
+          }
+          break;
+        case "button": case "submit": case "reset":
+          break;
+        default:
+            reviewOutput = reviewOutput + "<tr><td>"+reviewContents.elements[review].name+"</td>";
+            reviewOutput = reviewOutput + "<td>"+dataType+ "</td>";
+            reviewOutput = reviewOutput + "<td class='reviewOutput'>"+ reviewContents.elements[review].value +"</td></tr>";
+          }
     }
-    reviewOutput += "</table>";
-    document.getElementById("reviewOutput").innerHTML = reviewOutput;
+    if (reviewOutput.length > 0) {
+      reviewOutput = reviewOutput + "</table>";
+      document.getElementById("infoReview").innerHTML = reviewOutput;
+
+    }
 }
-*/
