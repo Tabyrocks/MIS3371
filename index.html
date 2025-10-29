@@ -33,7 +33,7 @@ Description: Creating patient registration form
 		Used https://profjake.w3spaces.com/MIS3371/homework3.html as a reference-->
 		<form 
 			name="med-signup"
-			id="signup"
+			id="medSignupFrm"
 			onreset="removeInput()"
 			action="hw2-thankyou.html"
       method="get"
@@ -93,7 +93,7 @@ Description: Creating patient registration form
 								</label>
 									<input 
 										type="text" 
-										name="fname" 
+										name="firstName" 
 										class="patientname"
 										id="fnameValidate" 
 										pattern="^([a-zA-Z]'?-?){1,30}$"
@@ -112,7 +112,7 @@ Description: Creating patient registration form
 								</label>
 									<input 
 										type="text" 
-										name="midname" 
+										name="middleName" 
 										class="midname"
 										id="midnameValidate"
 										pattern="^[a-zA-Z]$"
@@ -132,7 +132,7 @@ Description: Creating patient registration form
 								</label>
 									<input 
 										type="text" 
-										name="lname" 
+										name="lastName" 
 										class="patientname"
 										id="lnameValidate"
 										pattern="^([a-zA-Z2-5]'?-?){1,30}$"
@@ -176,7 +176,7 @@ Description: Creating patient registration form
 								</label>
 									<input 
 										type="password" 
-										name="ssnum" 
+										name="ssn" 
 										id="ssnValidate"
 										onblur="validateSsn()" 
 										placeholder="***-**-1234"
@@ -195,7 +195,7 @@ Description: Creating patient registration form
 									<input 
 										type="radio" 
 										class="gender" 
-										name="gender" 
+										name="male" 
 										value="male"
 									>
 										Male
@@ -203,7 +203,7 @@ Description: Creating patient registration form
 									<input 
 										type="radio" 
 										class="gender" 
-										name="gender" 
+										name="female" 
 										value="female"
 									>
 										Female
@@ -211,7 +211,7 @@ Description: Creating patient registration form
 									<input 
 										type="radio" 
 										class="gender" 
-										name="gender" 
+										name="otherGender" 
 										value="other"
 									>
 										Other
@@ -233,7 +233,7 @@ Description: Creating patient registration form
 									<input 
 										type="radio" 
 										class="primelang" 
-										name="primelang" 
+										name="primeLang-English" 
 										value="english"
 									>
 										English
@@ -241,7 +241,7 @@ Description: Creating patient registration form
 									<input 
 										type="radio" 
 										class="primelang" 
-										name="primelang" 
+										name="primeLang-Spanish" 
 										value="spanish"
 									>
 										Spanish
@@ -249,7 +249,7 @@ Description: Creating patient registration form
 									<input 
 										type="radio" 
 										class="primelang" 
-										name="primelang" 
+										name="primeLang-Other" 
 										value="other"
 									>
 										Other:
@@ -258,6 +258,7 @@ Description: Creating patient registration form
 									<input 
 										type="text" 
 										class="primelangtxt"
+										name="primeLang-Txt"
 										title="If other button is picked - Type in your language" 
 										name="othertxt"
 									>
@@ -592,7 +593,7 @@ Description: Creating patient registration form
 								</label>
 									<input 
 										type="text" 
-										name="fname" 
+										name="econtact-Fname" 
 										class="e-contactname"
 										id="ecFnameValidate"
 										onblur="validateEcFname() "
@@ -610,7 +611,7 @@ Description: Creating patient registration form
 								</label>
 									<input 
 										type="text" 
-										name="lname" 
+										name="econtact-Lname" 
 										class="e-contactname"
 										id="ecLnameValidate"
 										onblur="validateEcLname()"
@@ -635,7 +636,7 @@ Description: Creating patient registration form
 								</label>
 									<input 
 										type="phone" 
-										name="phone"
+										name="econtact-Phonenum"
 										autocomplete="off"
 										class="phone2"
 										id="ecPhoneValidate"
@@ -652,7 +653,7 @@ Description: Creating patient registration form
 									<input 
 										type="radio" 
 										class="phonetype" 
-										name="phonetype1" 
+										name="econtact-Phonehome" 
 										value="home"
 									>
 										Home
@@ -660,7 +661,7 @@ Description: Creating patient registration form
 									<input 
 										type="radio" 
 										class="phonetype" 
-										name="phonetype1" 
+										name="econtact-Phonemobile" 
 										value="mobile"
 									>
 										Mobile
@@ -674,7 +675,7 @@ Description: Creating patient registration form
 								</label>
 									<input 
 										type="email" 
-										name="email"
+										name="econtact-Email"
 										autocomplete="off" 
 										class="email"
 										id="ecEmailValidate"
@@ -914,6 +915,7 @@ Description: Creating patient registration form
 									<input
 										type="range"
 										id="health-slide"
+										name="healthSlider"
 										min="1"
 										max="10"
 										value="1"
@@ -959,7 +961,7 @@ Description: Creating patient registration form
 								</label>
 									<input 
 										type="text" 
-										name="username"
+										name="userName"
 										autocomplete="off" 
 										id="userIdValidate"
 										onblur="validateUserId()"
@@ -1021,7 +1023,7 @@ Description: Creating patient registration form
 								</label>
 									<input 
 										type="password" 
-										name="passwordValidate" 
+										name="password" 
 										id="passwordValidate"
 										onfocus="validatePassword()"
 										ononkeyup = "validatePassword()"
@@ -1042,7 +1044,7 @@ Description: Creating patient registration form
 								</label>
 									<input 
 										type="password" 
-										name="password" 
+										name="repeatPassword" 
 										id="repeatPassword"
 										onfocus="validatePassword()"
 										ononkeyup = "validatePassword()"
@@ -1065,9 +1067,10 @@ Description: Creating patient registration form
 								<button 
 									type="button"
 									id="review"
+									value="Review"
 									onclick="reviewData()"
 								>
-									Review
+								Review
 								</button>
 
 								<button 
@@ -1091,6 +1094,8 @@ Description: Creating patient registration form
 
 				<!--Placeholder to bring in the footer-->
       <div id="footerPlaceholder"></div>
+		<hr>
+		<hr>
 			<!--Placeholder for re-displaying the inputted data-->  
 			<span id="infoReview"></span>
 		</form>
