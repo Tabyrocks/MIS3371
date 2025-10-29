@@ -74,7 +74,7 @@ input[type=email]:focus,[type=password]:focus,[type=address]:focus,[type=phone]:
 }
 
 /*Assigning font-size to the input labels*/
-.ptname, .ptinfo, .address, .address-2, .e-contact, .e-contactinfo, .instructions, .medhistory-1, .medhistory-2, .health, .password, .ptlang, .ptmarital, .health-slider, .slider-start, .slider-end, .footer, .currentDate, #infoReview{
+.ptname, .ptinfo, .address, .address-2, .e-contact, .e-contactinfo, .instructions, .medhistory-1, .medhistory-2, .health, .password, .ptlang, .ptmarital, .health-slider, .slider-start, .slider-end, .footer, .currentDate {
 	font-size: 16px;
 }
 
@@ -385,13 +385,26 @@ button:hover{
 }
 	
 #infoReview	{
-	display: none;
-	background-color: #8DBCD6;
-	color: rgb(47, 44, 44);
-	font-weight: bold;
+	color: whitesmoke(47, 44, 44);
+	font-size: 12px;
 	padding-top: 20px;
 	padding-bottom: 20px;
 	padding-left: 20px;
 	padding-right: 20px;
 	margin-top: 20px;
+}
+
+.dataOutput {
+	font-size: 20px;
+	text-transform: lowercase;
+	font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	line-height: 1.5;
+}
+
+.dataOutput th {
+	font-size: 24px;
+	text-decoration-style: solid;
+	text-decoration: underline;
+	font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	line-height: 2.0;
 }
