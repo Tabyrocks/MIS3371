@@ -422,8 +422,8 @@ function validatePassword()
 
     passwordToValidate.onkeyup = function() {
 
-      var passValue = passwordToValidate.value;
-      var matchedValue = passMatch.value;
+      let passValue = passwordToValidate.value;
+      let matchedValue = passMatch.value;
 
       //Verifying a the lowercase letter is in the password
       if(/[a-z]/.test(passValue)) {
@@ -487,42 +487,42 @@ function removeInput()
 /*Referencing https://profjake.w3spaces.com/MIS3371/homework3.html for the reviewData() function*/
 function reviewData() {
     //Creating variables
-    var reviewContents = document.getElementById("medSignupFrm");
-    var reviewOutput;
-    var dataType;
-    var review;
+    let reviewContents = document.getElementById("medSignupFrm");
+    let reviewOutput;
+    let dataType;
+    let review;
     
     //Creating table row and headers
     reviewOutput = "<table class='dataOutput'><th>Field Name</th><th>Data Type</th><th>Entered Value</th></tr>";
 
-    for (var review = 0; review < reviewContents.length; review++) {
+    for (review = 0; review < reviewContents.length; review++) {
       console.log("item: "+review+" "+reviewContents.elements[review].name+" = "+reviewContents.elements[review].value);
       dataType = reviewContents.elements[review].type;
       switch (dataType) {
         case "checkbox":
           if (reviewContents.elements[review].checked) {
-            reviewOutput = reviewOutput + "<tr><td>"+reviewContents.elements[review].name+"</td>";
-            reviewOutput = reviewOutput + "<td>"+dataType+ "</td>";
-            reviewOutput = reviewOutput + "<td class='reviewOutput'>Checked</td></tr>";
+            reviewOutput += "<tr><td>"+reviewContents.elements[review].name+"</td>";
+            reviewOutput += "<td>"+dataType+ "</td>";
+            reviewOutput += "<td class='reviewOutput'>Checked</td></tr>";
           }
           break;
         case "radio":
           if (reviewContents.elements[review].checked) {
-            reviewOutput = reviewOutput + "<tr><td>"+reviewContents.elements[review].name+"</td>";
-            reviewOutput = reviewOutput + "<td>"+dataType+ "</td>";
-            reviewOutput = reviewOutput + "<td class='reviewOutput'>"+ reviewContents.elements[review].value +"</td></tr>";
+            reviewOutput += "<tr><td>"+reviewContents.elements[review].name+"</td>";
+            reviewOutput += "<td>"+dataType+ "</td>";
+            reviewOutput += "<td class='reviewOutput'>"+ reviewContents.elements[review].value +"</td></tr>";
           }
           break;
         case "button": case "submit": case "reset":
           break;
         default:
-            reviewOutput = reviewOutput + "<tr><td>"+reviewContents.elements[review].name+"</td>";
-            reviewOutput = reviewOutput + "<td>"+dataType+ "</td>";
-            reviewOutput = reviewOutput + "<td class='reviewOutput'>"+ reviewContents.elements[review].value +"</td></tr>";
+            reviewOutput += "<tr><td>"+reviewContents.elements[review].name+"</td>";
+            reviewOutput += "<td>"+dataType+ "</td>";
+            reviewOutput += "<td class='reviewOutput'>"+ reviewContents.elements[review].value +"</td></tr>";
           }
     }
     if (reviewOutput.length > 0) {
-      reviewOutput = reviewOutput + "</table>";
+      reviewOutput += "</table>";
       document.getElementById("infoReview").innerHTML = reviewOutput;
 
     }
