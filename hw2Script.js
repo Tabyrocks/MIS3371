@@ -386,8 +386,8 @@ function numChangeSlider()
 //the only special characters are a underscore or a dash.
 function validateUserId() 
   {
-    const userIdValid = document.getElementById("userIdValidate").value;
-    const errorMsg = document.getElementById("userIdErrorMsg")
+    let userIdValid = document.getElementById("userIdValidate").value;
+    let errorMsg = document.getElementById("userIdErrorMsg")
     let errorFlag = 0;
 
     if(userIdValid.length < 5) {
@@ -411,14 +411,14 @@ function validateUserId()
 //Referencing code from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_password_val
 function validatePassword() 
   {
-    var passwordToValidate = document.getElementById("passwordValidate");
-    var passMatch = document.getElementById("repeatPassword");
-    var letterReq = document.getElementById("letterReq");
-    var capLetterReq = document.getElementById("capReq");
-    var numbReq = document.getElementById("numberReq");
-    var specialCharReq = document.getElementById("spCharReq");
-    var passLength = document.getElementById("lengthReq");
-    var passMatchReq = document.getElementById("passMatch")
+    let passwordToValidate = document.getElementById("passwordValidate");
+    let passMatch = document.getElementById("repeatPassword");
+    let letterReq = document.getElementById("letterReq");
+    let capLetterReq = document.getElementById("capReq");
+    let numbReq = document.getElementById("numberReq");
+    let specialCharReq = document.getElementById("spCharReq");
+    let passLength = document.getElementById("lengthReq");
+    let passMatchReq = document.getElementById("passMatch")
 
     passwordToValidate.onkeyup = function() {
 
@@ -433,7 +433,6 @@ function validatePassword()
         letterReq.classList.remove("valid");
         letterReq.classList.add("invalid")//This will change the class to invalid and triggers the css script to change color to red.
       }
-  
     //verifying a capital letter is included in the password
       if(/[A-Z]/.test(passValue)) {
         capLetterReq.classList.remove("invalid");
